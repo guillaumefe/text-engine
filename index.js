@@ -107,9 +107,9 @@ let inv = () => {
     return;
   }
 
-  println(`Vous n'avez pas cet objet dans votre inventaire:`);
+  //println(`Vous n'avez pas cet objet dans votre inventaire:`);
   disk.inventory.forEach(item => {
-    println(`${bullet} ${getName(item.name)}`);
+    println(`${bullet} ${getName(item.desc)}`);
   });
 };
 
