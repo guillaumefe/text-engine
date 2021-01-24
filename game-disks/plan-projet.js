@@ -6,14 +6,12 @@ const game = {
     {
       id: 'accueil-room', // Unique identifier for this room. Entering a room will set the disk's roomId to this.
       name: `Accueil de l'entreprise`, // Displayed each time the player enters the room.
-      desc: `Vous êtes à la réception de l'entreprise. Devant vous se dresse un large présentoir, derrière lequel un hôte d'accueil vous adresse un large sourire. Sur le bureau trône une petite MAQUETTE. Devant vous sont disposées 8 lourdes portes menant vers la DIRECTION-GENERALE, la DIRECTION-TECHNIQUE, la DIRECTION-COMMERCIALE, la DIRECTION-RH, la DIRECTION-FINANCIERE, la DIRECTION-JURIDIQUE, la salle de REUNION et la salle du COFFRE. Si vous avez besoin, utilisez la commande HELP.`,
+      desc: `Vous êtes à la réception de l'entreprise. Devant vous se dresse un large présentoir,i sur lequel trône une petite MAQUETTE et depuis lequel un HOTE d'accueil vous adresse un large sourire. Devant vous sont disposées 8 lourdes portes menant vers la DIRECTION-GENERALE, la DIRECTION-TECHNIQUE, la DIRECTION-COMMERCIALE, la DIRECTION-RH, la DIRECTION-FINANCIERE, la DIRECTION-JURIDIQUE, la salle de REUNION et la salle du COFFRE. Si vous avez besoin, utilisez la commande HELP.`,
       items: [
         {
             name: `maquette-de-l'entreprise`,
             desc: `Une petite maquette des locaux de l'entreprise, à l'échelle`,
             isTakeable: true,
-            //onUse: () => {
-            //}
             onUse: () => println(`Nothing happened.`), // Called when the player uses the item.
         },
         {
@@ -61,44 +59,43 @@ const game = {
         {
           dir: 'direction-generale', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
           id: 'dir-gen-room',
-          //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
         },
         {
           dir: 'direction-technique', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
           id: 'dir-tech-room',
-          //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
+          block: `The door is locked`,
         },
         {
           dir: 'direction-commerciale', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
           id: 'dir-com-room',
-          //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
+          block: `The door is locked`,
         },
         {
           dir: 'direction-financiere', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
           id: 'dir-fin-room',
-          //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
+          block: `The door is locked`,
         },
         {
           dir: 'direction-juridique', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
           id: 'dir-jur-room',
-          //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
+          block: `The door is locked`,
         },
         {
           dir: 'reunion', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
           id: 'reunion-room',
-          //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
+          block: `The door is locked`,
         },
         {
           dir: 'coffre', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
           id: 'coffre-room',
-          //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
+          block: `The door is locked`,
         },
       ],
     },
     {
       id: 'dir-gen-room',
       name: 'Bureau de la direction générale',
-      desc: `Une grande pièce lumineuse apparait devant vous. Assis derrière un imposant bureau en bois d'ébène, un petit homme chauve vous regarde avec curiosité. Vous faites quelques pas à l'intérieur. Derrière vous se dresse une lourde porte menant vers l'ACCUEIL de l'entreprise.`,
+      desc: `Une grande pièce lumineuse apparait devant vous. Assis derrière un imposant bureau en bois d'ébène, un homme très grand, avec une peau de noix, des cheveux noirs et des yeux noirs vous regarde avec curiosité. Il s'agit du DIRECTEUR général de l'entreprise. Vous faites quelques pas à l'intérieur. Derrière vous se dresse une lourde porte menant vers l'ACCUEIL de l'entreprise.`,
       items: [
         {
           name: 'accueil',
@@ -239,5 +236,13 @@ const game = {
         },
       ],
     },
+  ],
+  characters: [
+      {
+          name: `directeur`,
+          desc: `Oliver Ortiz est le directeur général de l'entreprise. Il a 58 ans et aime les courses de furets, les voyages et le tennis. Il est brillant et courageux, mais peut aussi être très égoïste et un peu déloyal. Il est français. Il est titulaire d'un diplôme de troisième cycle en droit. Physiquement, Oliver est légèrement en surpoids mais il est par ailleurs en bonne forme. Il est très grand, avec une peau de noix, des cheveux noirs et des yeux marrons. Il a grandi dans un quartier de classe supérieure. Après la mort de son père quand il était jeune, il a été élevé par sa mère Il est actuellement marié à Michelle Esmee Cooper. Michelle a un an de plus que lui et travaille comme scientifique. Oliver a deux enfants avec sa femme Michelle : Bailey, 15 ans, et Kurtis, 17 ans. Le meilleur ami d'Oliver est associé dans un cabinet d'avocats appelé Tamara Kumar. Ils ont une amitié très forte. Il traîne également avec Darnell Jenkins et Blanche Paterson. Ils aiment jouer aux jeux vidéo ensemble.`,
+          roomId: 'dir-gen-room',
+          onTalk: () => println(`hello world`),
+      },
   ],
 };
