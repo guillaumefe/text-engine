@@ -6,7 +6,7 @@ const game = {
     {
       id: 'accueil-room', // Unique identifier for this room. Entering a room will set the disk's roomId to this.
       name: `Accueil de l'entreprise`, // Displayed each time the player enters the room.
-      desc: `Vous êtes à la réception de l'entreprise. Devant vous se dresse un large présentoir, derrière lequel un hôte d'accueil vous adresse un large sourire. Devant vous sont disposés 8 lourdes portes menant vers la DIRECTION GENERALE, la DIRECTION TECHNIQUE, la DIRECTION COMMERCIALE, la DIRECTION RH, la DIRECTION FINANCIERE, la DIRECTION JURIDIQUE, la SALLE DE REUNION et le COFFRE-FORT.`, // Displayed when the player first enters the room.
+      desc: `Vous êtes à la réception de l'entreprise. Devant vous se dresse un large présentoir, derrière lequel un hôte d'accueil vous adresse un large sourire. Devant vous sont disposés 8 lourdes portes menant vers la DIRECTION-GENERALE, la DIRECTION-TECHNIQUE, la DIRECTION-COMMERCIALE, la DIRECTION-RH, la DIRECTION-FINANCIERE, la DIRECTION-JURIDIQUE, la SALLE-DE-REUNION et le COFFRE-FORT.`, // Displayed when the player first enters the room.
       items: [
         {
           name: 'direction-generale',
