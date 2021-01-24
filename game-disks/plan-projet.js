@@ -101,7 +101,7 @@ const fragments=[
     {
         name: `fragment`,
         isTakeable: true,
-        desc: `1. Etude de contexte`
+        desc: `1-etude de contexte`
     },
 ]
 
@@ -452,8 +452,16 @@ const game = {
               {
                   option: `J'ai les FRAGMENTS demandés!`,
                   onSelected: () => {
+                        
+                      const data = disk.inventory
+                      let count = 0
+                      for (let i=0; i<data.length; i++) {
+                          if (data[i].name && data[i].name == 'fragment') {
+                              count += 1
+                          }
+                      }
 
-                      if ( ! getItemInInventory('1-etude-de-contexte') || ! getItemInInventory('2-limites-physiques-du-domaine-dapplication') || ! getItemInInventory('3-limites-du-systeme-dinformation-du-domaine-dapplication') || ! getItemInInventory('4-limites-organisationnelle-du-domaine-dapplication') || ! getItemInInventory('5-politique-de-sécurité-de-linformation') || ! getItemInInventory('6-analyse-de-risque') || ! getItemInInventory('7-selection-des-clauses-1-a-4') || ! getItemInInventory('8-selection-parmi-les-114-mesures-de-lAnnexeA') || ! getItemInInventory('9-analyse-des-ecarts') || ! getItemInInventory('10-enonciation-du-domaine-dapplicabilite') || ! getItemInInventory('11-validation-direction') || ! getItemInInventory('12-construction-des-indicateurs') || ! getItemInInventory('13-mise-en-oeuvre-des-mesures') || ! getItemInInventory('14-surveillance-des-indicateurs') || ! getItemInInventory('15-analyse-des-indicateurs') || ! getItemInInventory('16-lancement-de-laudit-interne') || ! getItemInInventory('17-realisation-du-rapport-daudit') || ! getItemInInventory('18-transmission-du-rapport-daudit-a-la-direction') || ! getItemInInventory('19-realiser-une-revue-de-direction') || ! getItemInInventory('20-constituer-une-equipe-projet-pour-lever-les-NC')) {
+                      if (count < 20) {
                           println(`Vous n'avez pas encore tous les fragments. Vous devez visiter l'entreprise et essayer de trouver des fragments. Lorsque vous en verrez, vous n'aurez qu'à les prendre, afin de les ajouter dans votre inventaire. Accrochez-vous!`)
                       } else {
                           println('Vous avez très bien travaillé!')
