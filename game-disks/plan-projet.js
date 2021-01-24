@@ -240,9 +240,38 @@ const game = {
   characters: [
       {
           name: `directeur`,
-          desc: `Oliver Ortiz est le directeur général de l'entreprise. Il a 58 ans et aime les courses de furets, les voyages et le tennis. Il est brillant et courageux, mais peut aussi être très égoïste et un peu déloyal. Il est français. Il est titulaire d'un diplôme de troisième cycle en droit. Physiquement, Oliver est légèrement en surpoids mais il est par ailleurs en bonne forme. Il est très grand, avec une peau de noix, des cheveux noirs et des yeux marrons. Il a grandi dans un quartier de classe supérieure. Après la mort de son père quand il était jeune, il a été élevé par sa mère Il est actuellement marié à Michelle Esmee Cooper. Michelle a un an de plus que lui et travaille comme scientifique. Oliver a deux enfants avec sa femme Michelle : Bailey, 15 ans, et Kurtis, 17 ans. Le meilleur ami d'Oliver est associé dans un cabinet d'avocats appelé Tamara Kumar. Ils ont une amitié très forte. Il traîne également avec Darnell Jenkins et Blanche Paterson. Ils aiment jouer aux jeux vidéo ensemble.`,
+          desc: `Thomas Gillette est le directeur général de l'entreprise My Virtual School. Il a 58 ans et aime les courses de furets, les voyages et le tennis. Il est brillant et courageux, mais peut aussi être très égoïste et un peu déloyal. Il est français. Il est titulaire d'un diplôme de troisième cycle en droit. Physiquement, Thomas est légèrement en surpoids mais il est par ailleurs en bonne forme. Il est très grand, avec une peau de noix, des cheveux noirs et des yeux marrons. Il a grandi dans un quartier de classe supérieure. Après la mort de son père quand il était jeune, il a été élevé par sa mère Il est actuellement marié à Pauline Gallois. Pauline a un an de plus que lui et travaille comme scientifique. Thomas a deux enfants avec sa femme Pauline : Sophie, 15 ans, et Jean, 17 ans. Le meilleur ami de Thomas est associé dans un cabinet d'avocats, il s'appelle Tamara Kumar. Ils ont une amitié très forte. Thomas traîne également avec Stéphane Darnon et Robert Loti. Ils aiment jouer aux jeux vidéo ensemble.`,
           roomId: 'dir-gen-room',
-          onTalk: () => println(`hello world`),
+          onTalk: () => println(`Ah, je suis content de vous voir!`),
+          topics: [
+              {
+                  option: `Parlez moi de votre ENTREPRISE`,
+                  line: `La société My Virtual School est une société créée en 2014 agissant dans le monde de l’accompagnement scolaire. J'ai créé cette entreprise avaec mon épouse, Pauline Gallois, afin de pouvoir développer un logiciel nommé MyNewSchool permettant l’accès aux enfants en difficulté en scolaire à une plateforme en ligne d’accompagnement scolaire du CP à la 3ème. L’application permet également un suivi des résultats scolaires des élèves inscrits sur la plateforme appropriée en facilitant la mise en relation avec les écoles partenaires. MyNewSchool se veut comme étant une solution de soutien à part entière dans la vie des élèves que ce soit pour leur vie scolaire ainsi que pour leur faire découvrir des enseignements périscolaires.  Nos locaux sont situés à Rouen. Le marché de l’éducation étant en pleine expansion dans les années 2010. La société My Virtual School a connu un grand succès commercial et sa croissance fut telle qu’elle devint rapidement l’un des leaders francophones du marché en la matière. Cependant ces pics de croissance ne furent pas sans difficulté. La coordination des activités et le contrôle global de l’entreprise est de plus en plus compliqué à gérer. L’activité de l’entreprise se concentre donc sur le développement de son logiciel MyNewSchool ayant vocation à être utilisé par une majorité des élèves français mais également de devenir le partenaire numéro de chaque école en France.`
+              },
+              {
+                  option: `Parlez-moi les principales CARACTERISTIQUES de l'entreprise`,
+                  line: `Bien sûr! Nous avons:
+                    - Un module de gestion des demandes clients • Un module de gestion de la facturation
+                    - Un module de transmission sécurisée des données • Un module de suivi des progrès des élèves
+                    - Un module distribuant des programmes scolaires conçus par des professeurs
+                    - Un module distribuant des programmes et activités extra-scolaires conçus par des professeurs et spécialiste de chaque activité
+                    - Un outil permettant la mise en relation avec des professeurs de tout niveau (du CP à la 3ème)
+                    - Un module permettant le dépôt et la récupération des devoirs
+                    - Un module de partenariat qui permettra la relation directe avec l’ensemble de l’équipe pédagogique et les parents d’élèves.
+                  `
+              },
+              {
+                  option: `Un nouveau CONTRAT avec un client important`,
+                  removeOnRead: true,
+                  onSelected: () => {
+                      println(`Nous sommes en train de finaliser une opération interessante avec un important client. Toutefois, pour que le contrat soit valide, nous devons nous assurer d'être en conformité avec le référentiel ISO 27001. Vous connaissez n'est-ce-pas? Je n'en doute pas une seconde. Je vous charge d'organiser le passage de la certification éponyme. Voyez avec le directeur technique.`)
+                      const room = getRoom('accueil-room')
+                      const exit = getExit('direction-technique', room.exits)
+                      delete exit.block
+                      println(`Vous avez débloqué la porte vers la DIRECTION-TECHNIQUE`)
+                  }
+              },
+          ]
       },
   ],
 };
