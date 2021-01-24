@@ -6,8 +6,16 @@ const game = {
     {
       id: 'accueil-room', // Unique identifier for this room. Entering a room will set the disk's roomId to this.
       name: `Accueil de l'entreprise`, // Displayed each time the player enters the room.
-      desc: `Vous êtes à la réception de l'entreprise. Devant vous se dresse un large présentoir, derrière lequel un hôte d'accueil vous adresse un large sourire. Devant vous sont disposées 8 lourdes portes menant vers la DIRECTION-GENERALE, la DIRECTION-TECHNIQUE, la DIRECTION-COMMERCIALE, la DIRECTION-RH, la DIRECTION-FINANCIERE, la DIRECTION-JURIDIQUE, la SALLE-DE-REUNION et le COFFRE-FORT.`, // Displayed when the player first enters the room.
+      desc: `Vous êtes à la réception de l'entreprise. Devant vous se dresse un large présentoir, derrière lequel un hôte d'accueil vous adresse un large sourire. Sur le bureau trône une petite MAQUETTE. Devant vous sont disposées 8 lourdes portes menant vers la DIRECTION-GENERALE, la DIRECTION-TECHNIQUE, la DIRECTION-COMMERCIALE, la DIRECTION-RH, la DIRECTION-FINANCIERE, la DIRECTION-JURIDIQUE, la salle de REUNION et la salle du COFFRE. Si vous avez besoin, utilisez la commande HELP.`,
       items: [
+        {
+            name: `maquette-de-l'entreprise`,
+            desc: `Une petite maquette des locaux de l'entreprise, à l'échelle`,
+            isTakeable: true,
+            //onUse: () => {
+            //}
+            onUse: () => println(`Nothing happened.`), // Called when the player uses the item.
+        },
         {
           name: 'direction-generale',
           desc: `Une belle porte en bois massif se dresse devant vous`, // Displayed when the player looks at the item.
@@ -41,12 +49,12 @@ const game = {
         {
           name: 'salle-de-reunion',
           desc: `Une belle porte en bois massif se dresse devant vous`, // Displayed when the player looks at the item.
-          onUse: () => println(`Tapez GO SALLE-DE-REUNION pour franchir le seuil de la porte.`), // Called when the player uses the item.
+          onUse: () => println(`Tapez GO REUNION pour franchir le seuil de la porte.`), // Called when the player uses the item.
         },
         {
-          name: 'coffre-fort',
+          name: 'coffre',
           desc: `Une belle porte en bois massif se dresse devant vous`, // Displayed when the player looks at the item.
-          onUse: () => println(`Tapez GO COFFRE-FORT pour franchir le seuil de la porte.`), // Called when the player uses the item.
+          onUse: () => println(`Tapez GO COFFRE pour franchir le seuil de la porte.`), // Called when the player uses the item.
         },
       ],
       exits: [
@@ -76,12 +84,12 @@ const game = {
           //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
         },
         {
-          dir: 'salle-de-reunion', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
+          dir: 'reunion', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
           id: 'reunion-room',
           //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
         },
         {
-          dir: 'coffre-fort', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
+          dir: 'coffre', // "dir" can be anything. If it's north, the player will type "go north" to get to the room called "A Forest Clearing".
           id: 'coffre-room',
           //block: `The DOOR leading NORTH is overgrown with VINES.`, // If an exit has a block, the player will not be able to go that direction until the block is removed.
         },
