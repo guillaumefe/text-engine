@@ -264,7 +264,7 @@ const game = {
                   option: `Un nouveau CONTRAT avec un client important`,
                   removeOnRead: true,
                   onSelected: () => {
-                      println(`Nous sommes en train de finaliser une opération interessante avec un important client. Toutefois, pour que le contrat soit valide, nous devons nous assurer d'être en conformité avec le référentiel ISO 27001. Vous connaissez n'est-ce-pas? Je n'en doute pas une seconde. Je vous charge d'organiser le passage de la certification éponyme. Voyez avec le directeur technique.`)
+                      println(`Nous sommes en train de finaliser une opération interessante avec un important client. Toutefois, pour que le contrat soit valide, nous devons nous assurer d'être en conformité avec le référentiel ISO 27001. Vous connaissez n'est-ce-pas? Je n'en doute pas une seconde. Je vous charge d'organiser le passage de la certification éponyme. Voyez avec Sandrine.`)
                       const room = getRoom('accueil-room')
                       const exit = getExit('direction-technique', room.exits)
                       delete exit.block
@@ -273,5 +273,24 @@ const game = {
               },
           ]
       },
+          {
+              name: 'rssi',
+              desc: `Sandrine Ortiz est un ingénieur en sécurité de 32 ans qui aime les puzzles, la natation et le travail sur les voitures. Elle est intelligente et gentille, mais peut aussi être très ennuyeuse et un peu instable. Elle est française. Elle est titulaire d'un diplôme de troisième cycle en systèmes d'information. Elle est allergique aux guêpes. Physiquement, Sandrine est en assez bonne forme. Elle a une taille moyenne, une peau de coco, des cheveux et des yeux bruns. Elle a un grain de beauté sur la joue gauche. Elle a grandi dans un quartier défavorisé. Après la mort de sa mère quand elle était jeune, elle a été élevée par son père Elle est actuellement célibataire. Sa dernière histoire d'amour a été avec un assistant de laboratoire appelé Olivier Maurice Robinson, qui avait le même âge qu'elle. Ils ont rompu parce qu'Olivier trouvait Sandrine trop grincheuse. Sandrine a un enfant avec son ex-petit ami Ariel : Logan, 15 ans. La meilleure amie de Sandrine est une consultante médicale appelée Mallory Li. Ils ont une amitié très forte. Elle traîne aussi avec Leroy Clark et Natalie Han. Ils aiment faire du vélo ensemble.`,
+          roomId: 'dir-tech-room',
+              onTalk: () => println(`Mouuui...?`),
+              topics: [
+                  {
+                    option: `A propos de la certification ISO 27001 demandé par Thomas`,
+                      removeOnRead: true,
+                      onSelected: () => {
+                          println(`J'ai entendu parler de ça. Mon problème c'est que nous ne sommes pas vraiment près a passer cette certification. Il y a un certain nombre de problèmes qui sont survenus sur l'application cette semaine. Des choses assez inquiétantes, demandez des informations à notre directeur juridique.`)
+                          const room = getRoom('accueil-room')
+                          const exit = getExit('direction-juridique', room.exits)
+                          delete exit.block
+                          println(`Vous avez débloqué la porte vers la DIRECTION-JURIDIQUE`)
+                      }
+                  }
+              ]
+          }
   ],
 };
